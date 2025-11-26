@@ -1,12 +1,1166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>My Personal Site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dendron Consulting - Empowering nonprofits through adaptive planning, leadership development, and organizational design.">
+  <title>Dendron Consulting | Nonprofit Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Warm Earthy Color Palette */
+      --color-bark: #4a3728;
+      --color-bark-light: #5d4a3a;
+      --color-soil: #6b5344;
+      --color-terracotta: #c17f59;
+      --color-sand: #d4a574;
+      --color-cream: #f5ebe0;
+      --color-warm-white: #faf8f5;
+      --color-sage: #87886f;
+      --color-moss: #6b7353;
+      --color-clay: #a67c52;
+
+      /* Typography */
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+
+      /* Transitions */
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--color-bark);
+      background-color: var(--color-warm-white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-bark);
+    }
+
+    a {
+      color: var(--color-terracotta);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--color-soil);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: var(--space-sm) 0;
+      box-shadow: 0 2px 20px rgba(74, 55, 40, 0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-bark);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: var(--space-md);
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--color-soil);
+      padding: var(--space-xs) 0;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-terracotta);
+      transition: width var(--transition-med);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-xs);
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--color-bark);
+      transition: var(--transition-fast);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--space-xl) + 60px) var(--space-md) var(--space-xl);
+      background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-warm-white) 50%, rgba(212, 165, 116, 0.1) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(193, 127, 89, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-icon {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto var(--space-md);
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: var(--space-sm);
+      color: var(--color-bark);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-terracotta);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--color-soil);
+      margin-bottom: var(--space-md);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: all var(--transition-med);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--color-terracotta);
+      color: var(--color-warm-white);
+      border: 2px solid var(--color-terracotta);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-soil);
+      border-color: var(--color-soil);
+      color: var(--color-warm-white);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-bark);
+      border: 2px solid var(--color-bark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-bark);
+      color: var(--color-warm-white);
+    }
+
+    /* Section Styles */
+    section {
+      padding: var(--space-xl) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--color-soil);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--color-terracotta);
+      margin: var(--space-sm) auto 0;
+    }
+
+    /* Philosophy Section */
+    .philosophy {
+      background: var(--color-cream);
+    }
+
+    .philosophy-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .philosophy-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: var(--space-sm);
+      color: var(--color-bark);
+    }
+
+    .philosophy-text p {
+      margin-bottom: var(--space-sm);
+      color: var(--color-soil);
+    }
+
+    .philosophy-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .philosophy-visual svg {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    /* Services Section */
+    .services {
+      background: var(--color-warm-white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .service-card {
+      background: var(--color-cream);
+      padding: var(--space-md);
+      border-radius: 8px;
+      transition: all var(--transition-med);
+      border: 1px solid transparent;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(74, 55, 40, 0.1);
+      border-color: var(--color-sand);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: var(--space-sm);
+      color: var(--color-terracotta);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .service-card p {
+      color: var(--color-soil);
+      font-size: 0.95rem;
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-terracotta) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-initials {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--color-warm-white);
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .about-text .role {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--color-terracotta);
+      margin-bottom: var(--space-sm);
+    }
+
+    .about-text p {
+      color: var(--color-soil);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Approach Section */
+    .approach {
+      background: var(--color-bark);
+      color: var(--color-cream);
+    }
+
+    .approach .section-header h2,
+    .approach .section-header p {
+      color: var(--color-cream);
+    }
+
+    .approach .section-divider {
+      background: var(--color-sand);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .approach-item {
+      text-align: center;
+      padding: var(--space-md);
+    }
+
+    .approach-number {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      margin-bottom: var(--space-xs);
+    }
+
+    .approach-item h3 {
+      font-size: 1.3rem;
+      color: var(--color-sand);
+      margin-bottom: var(--space-xs);
+    }
+
+    .approach-item p {
+      font-size: 0.95rem;
+      color: rgba(245, 235, 224, 0.8);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--color-cream);
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-info p {
+      color: var(--color-soil);
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-details {
+      margin-top: var(--space-md);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+      color: var(--color-soil);
+    }
+
+    .contact-item svg {
+      width: 24px;
+      height: 24px;
+      color: var(--color-terracotta);
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      background: var(--color-warm-white);
+      padding: var(--space-md);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(74, 55, 40, 0.08);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-sm);
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-bark);
+      margin-bottom: var(--space-xs);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      border: 1px solid var(--color-sand);
+      border-radius: 4px;
+      background: var(--color-warm-white);
+      color: var(--color-bark);
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-terracotta);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-bark);
+      color: var(--color-cream);
+      padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-brand .logo-text {
+      color: var(--color-cream);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      color: rgba(245, 235, 224, 0.7);
+    }
+
+    .footer-links h4 {
+      font-size: 1.1rem;
+      color: var(--color-sand);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-links a {
+      color: rgba(245, 235, 224, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-sand);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245, 235, 224, 0.1);
+      padding-top: var(--space-md);
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(245, 235, 224, 0.5);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--color-warm-white);
+        flex-direction: column;
+        padding: var(--space-xl) var(--space-md);
+        box-shadow: -10px 0 30px rgba(74, 55, 40, 0.15);
+        transition: right var(--transition-med);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+        z-index: 1001;
+      }
+
+      .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .hero {
+        padding-top: calc(var(--space-lg) + 80px);
+      }
+
+      .hero-icon {
+        width: 120px;
+        height: 120px;
+      }
+
+      .philosophy-content,
+      .about-content,
+      .contact-content,
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content {
+        text-align: center;
+      }
+
+      .about-image {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      .philosophy-visual {
+        order: -1;
+      }
+
+      .philosophy-visual svg {
+        max-width: 250px;
+      }
+
+      .footer-content {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --space-md: 1.5rem;
+        --space-lg: 3rem;
+        --space-xl: 4rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Overlay for mobile menu */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(74, 55, 40, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-med);
+      z-index: 999;
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content > * {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+  </style>
 </head>
 <body>
-  <h1>Welcome!</h1>
-  <p>Welcome to Dendron Consulting.</p>
-  <p>Jen Jacobs (Owner)</p>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tree trunk -->
+          <path d="M50 25 L50 75" stroke="#4a3728" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- Branches (dendrites) -->
+          <path d="M50 25 L35 10" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 25 L65 10" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 30 L30 18" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+          <path d="M50 30 L70 18" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+          <path d="M50 38 L32 28" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M50 38 L68 28" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M50 45 L38 38" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M50 45 L62 38" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Sub-branches -->
+          <path d="M35 10 L28 5" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M35 10 L32 2" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+          <path d="M65 10 L72 5" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M65 10 L68 2" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+          <path d="M30 18 L22 14" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+          <path d="M70 18 L78 14" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+
+          <!-- Roots (axons) -->
+          <path d="M50 75 L35 90" stroke="#c17f59" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 75 L65 90" stroke="#c17f59" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 70 L30 85" stroke="#c17f59" stroke-width="2" stroke-linecap="round"/>
+          <path d="M50 70 L70 85" stroke="#c17f59" stroke-width="2" stroke-linecap="round"/>
+          <path d="M50 65 L40 78" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M50 65 L60 78" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Sub-roots -->
+          <path d="M35 90 L28 95" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M35 90 L38 98" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+          <path d="M65 90 L72 95" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M65 90 L62 98" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+          <path d="M30 85 L22 92" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+          <path d="M70 85 L78 92" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">Dendron</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <svg class="hero-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tree trunk -->
+        <path d="M50 25 L50 75" stroke="#4a3728" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- Branches (dendrites) -->
+        <path d="M50 25 L35 10" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M50 25 L65 10" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M50 30 L30 18" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+        <path d="M50 30 L70 18" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+        <path d="M50 38 L32 28" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50 38 L68 28" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50 45 L38 38" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50 45 L62 38" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Sub-branches -->
+        <path d="M35 10 L28 5" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M35 10 L32 2" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+        <path d="M65 10 L72 5" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M65 10 L68 2" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+        <path d="M30 18 L22 14" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+        <path d="M70 18 L78 14" stroke="#4a3728" stroke-width="1" stroke-linecap="round"/>
+
+        <!-- Roots (axons) -->
+        <path d="M50 75 L35 90" stroke="#c17f59" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M50 75 L65 90" stroke="#c17f59" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M50 70 L30 85" stroke="#c17f59" stroke-width="2" stroke-linecap="round"/>
+        <path d="M50 70 L70 85" stroke="#c17f59" stroke-width="2" stroke-linecap="round"/>
+        <path d="M50 65 L40 78" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50 65 L60 78" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Sub-roots -->
+        <path d="M35 90 L28 95" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M35 90 L38 98" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+        <path d="M65 90 L72 95" stroke="#c17f59" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M65 90 L62 98" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+        <path d="M30 85 L22 92" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+        <path d="M70 85 L78 92" stroke="#c17f59" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <h1>Dendron Consulting</h1>
+      <p class="hero-tagline">Growing Connections. Strengthening Roots.</p>
+      <p>We help nonprofit organizations thrive through adaptive planning, leadership development, and organizational design that honors the power of human connection.</p>
+      <div>
+        <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section id="philosophy" class="philosophy">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Philosophy</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="philosophy-content">
+        <div class="philosophy-text">
+          <h3>The Power of Connection</h3>
+          <p>Just as dendrites receive signals and axons transmit them, creating the neural networks that power all thought and action, organizations thrive when their communication pathways are strong, clear, and well-connected.</p>
+          <p>The bare tree with visible roots symbolizes this truth: what we see above ground&mdash;the visible work, the outcomes, the impact&mdash;is only possible because of the deep, interconnected root systems below the surface.</p>
+          <p>At Dendron Consulting, we help nonprofits strengthen both their branches reaching outward and their roots growing deep, creating organizations that are resilient, adaptive, and capable of sustained growth.</p>
+        </div>
+        <div class="philosophy-visual">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Central connection points -->
+            <circle cx="100" cy="100" r="8" fill="#c17f59"/>
+            <circle cx="60" cy="60" r="6" fill="#4a3728"/>
+            <circle cx="140" cy="60" r="6" fill="#4a3728"/>
+            <circle cx="60" cy="140" r="6" fill="#d4a574"/>
+            <circle cx="140" cy="140" r="6" fill="#d4a574"/>
+            <circle cx="100" cy="40" r="5" fill="#4a3728"/>
+            <circle cx="100" cy="160" r="5" fill="#d4a574"/>
+            <circle cx="40" cy="100" r="5" fill="#6b5344"/>
+            <circle cx="160" cy="100" r="5" fill="#6b5344"/>
+
+            <!-- Connection lines -->
+            <path d="M100 100 L60 60" stroke="#4a3728" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L140 60" stroke="#4a3728" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L60 140" stroke="#d4a574" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L140 140" stroke="#d4a574" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L100 40" stroke="#4a3728" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L100 160" stroke="#d4a574" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L40 100" stroke="#6b5344" stroke-width="2" opacity="0.6"/>
+            <path d="M100 100 L160 100" stroke="#6b5344" stroke-width="2" opacity="0.6"/>
+
+            <!-- Outer connections -->
+            <path d="M60 60 L30 35" stroke="#4a3728" stroke-width="1.5" opacity="0.4"/>
+            <path d="M60 60 L35 70" stroke="#4a3728" stroke-width="1.5" opacity="0.4"/>
+            <path d="M140 60 L170 35" stroke="#4a3728" stroke-width="1.5" opacity="0.4"/>
+            <path d="M140 60 L165 70" stroke="#4a3728" stroke-width="1.5" opacity="0.4"/>
+            <path d="M60 140 L30 165" stroke="#d4a574" stroke-width="1.5" opacity="0.4"/>
+            <path d="M60 140 L35 130" stroke="#d4a574" stroke-width="1.5" opacity="0.4"/>
+            <path d="M140 140 L170 165" stroke="#d4a574" stroke-width="1.5" opacity="0.4"/>
+            <path d="M140 140 L165 130" stroke="#d4a574" stroke-width="1.5" opacity="0.4"/>
+
+            <!-- Small endpoint circles -->
+            <circle cx="30" cy="35" r="3" fill="#4a3728" opacity="0.5"/>
+            <circle cx="35" cy="70" r="3" fill="#4a3728" opacity="0.5"/>
+            <circle cx="170" cy="35" r="3" fill="#4a3728" opacity="0.5"/>
+            <circle cx="165" cy="70" r="3" fill="#4a3728" opacity="0.5"/>
+            <circle cx="30" cy="165" r="3" fill="#d4a574" opacity="0.5"/>
+            <circle cx="35" cy="130" r="3" fill="#d4a574" opacity="0.5"/>
+            <circle cx="170" cy="165" r="3" fill="#d4a574" opacity="0.5"/>
+            <circle cx="165" cy="130" r="3" fill="#d4a574" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p>Comprehensive consulting services designed specifically for nonprofit organizations</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 5 L30 55" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
+            <circle cx="30" cy="15" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="15" cy="35" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="45" cy="35" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="30" cy="50" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M30 23 L15 29" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M30 23 L45 29" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M15 41 L30 44" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M45 41 L30 44" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <h3>Adaptive Planning</h3>
+          <p>Navigate uncertainty with flexible strategic frameworks that evolve with your organization. We help you build planning processes that respond to change while staying true to your mission.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="18" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M15 55 L15 45 C15 38 22 33 30 33 C38 33 45 38 45 45 L45 55" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M30 33 L30 45" stroke="currentColor" stroke-width="2"/>
+            <path d="M25 40 L35 40" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3>Leadership Development</h3>
+          <p>Cultivate leaders at every level of your organization. From executive coaching to emerging leader programs, we develop the human capacity your mission demands.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <rect x="34" y="8" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <rect x="8" y="34" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <rect x="34" y="34" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M26 17 L34 17" stroke="currentColor" stroke-width="2"/>
+            <path d="M26 43 L34 43" stroke="currentColor" stroke-width="2"/>
+            <path d="M17 26 L17 34" stroke="currentColor" stroke-width="2"/>
+            <path d="M43 26 L43 34" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3>Operations Excellence</h3>
+          <p>Streamline your operations to maximize impact. We analyze workflows, optimize processes, and implement systems that let your team focus on what matters most.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="30" cy="30" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="30" cy="30" r="4" fill="currentColor"/>
+            <path d="M30 8 L30 18" stroke="currentColor" stroke-width="2"/>
+            <path d="M30 42 L30 52" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 30 L18 30" stroke="currentColor" stroke-width="2"/>
+            <path d="M42 30 L52 30" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3>Organizational Design</h3>
+          <p>Structure your organization for success. We help you align roles, responsibilities, and reporting relationships with your strategic priorities and culture.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 45 L10 25 L25 15 L40 25 L40 45" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M20 45 L20 32 L30 32 L30 45" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="48" cy="20" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M48 16 L48 24" stroke="currentColor" stroke-width="2"/>
+            <path d="M44 20 L52 20" stroke="currentColor" stroke-width="2"/>
+            <path d="M42 35 L55 48" stroke="currentColor" stroke-width="2"/>
+            <path d="M50 43 L55 48 L48 50" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          <h3>Generative Organizations</h3>
+          <p>Build high-performing cultures inspired by DORA research. We help you develop the capabilities that enable continuous improvement, psychological safety, and sustainable velocity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <div class="about-image-placeholder">
+            <span class="about-initials">JJ</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>Jen Jacobs</h3>
+          <p class="role">Founder &amp; Principal Consultant</p>
+          <p>With deep experience in the nonprofit sector, Jen founded Dendron Consulting on the belief that organizations&mdash;like neural networks&mdash;become more powerful through better connections.</p>
+          <p>Jen brings a unique perspective that combines strategic thinking with a genuine passion for the missions nonprofits serve. Her approach emphasizes building lasting organizational capacity rather than quick fixes, helping leaders develop the skills and systems they need to navigate complexity with confidence.</p>
+          <p>Whether working with a community-based organization or a national nonprofit, Jen meets each client where they are and helps them grow toward where they want to be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section id="approach" class="approach">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Approach</h2>
+        <p>A collaborative process built on listening, learning, and lasting change</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <div class="approach-number">01</div>
+          <h3>Listen</h3>
+          <p>We start by deeply understanding your organization&mdash;your history, culture, challenges, and aspirations. Every engagement begins with genuine curiosity.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-number">02</div>
+          <h3>Assess</h3>
+          <p>Using proven frameworks and fresh perspectives, we analyze your current state and identify opportunities for meaningful improvement.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-number">03</div>
+          <h3>Design</h3>
+          <p>Together, we craft solutions tailored to your unique context. No cookie-cutter approaches&mdash;just strategies that fit your organization.</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-number">04</div>
+          <h3>Implement</h3>
+          <p>We work alongside your team to bring plans to life, building internal capacity and ensuring sustainable change that outlasts our engagement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Let's Connect</h2>
+        <p>Ready to strengthen your organization? We'd love to hear from you.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Start a Conversation</h3>
+          <p>Every great partnership begins with a conversation. Whether you have a specific challenge in mind or simply want to explore how we might work together, we're here to listen.</p>
+          <p>Reach out to schedule a complimentary consultation and discover how Dendron Consulting can help your nonprofit thrive.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>hello@dendronconsulting.com</span>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Serving nonprofits nationwide</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="organization">Organization</label>
+            <input type="text" id="organization" name="organization">
+          </div>
+          <div class="form-group">
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo-text">Dendron Consulting</div>
+          <p>Helping nonprofits grow stronger through the power of connection, communication, and organizational excellence.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Adaptive Planning</a></li>
+            <li><a href="#services">Leadership</a></li>
+            <li><a href="#services">Operations</a></li>
+            <li><a href="#services">Org Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Dendron Consulting. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.nav-overlay');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    function toggleMenu() {
+      menuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
